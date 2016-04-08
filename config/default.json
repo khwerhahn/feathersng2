@@ -1,0 +1,13 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "postgres": "postgres://konstantinwerhahn:@localhost:5432/postgres",
+  "public": "../public/",
+  "auth": {
+    "idField": "id",
+    "token": {
+      "secret": "gEb3njIaEuJ2uhKsf4e9vCudhLSdysXaALuuAaO/M/ck0oIczDnJZr7G/qk57Ux3lDOYlK3zdHr5ww3teYg8DA=="
+    },
+    "local": {}
+  }
+}

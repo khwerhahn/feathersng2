@@ -1,0 +1,91 @@
+module.exports = function () {
+    var root = '';
+    var app = root + 'client/app/';
+    var test = root + 'test/';
+    var testHelper = test + 'test-helpers/';
+    var e2e = test + 'e2e/';
+    var assets = root + 'client/assets/';
+    var assetsPath = {
+        styles: assets + 'styles/',
+        images: assets + 'images/',
+        fonts: assets + 'fonts/'
+    };
+    var index = root + 'client/index.html';
+    var tsFiles = [
+        app + '**/!(*.spec)+(.ts)'
+    ];
+    var tsTestFiles = {
+        unit: [app + '**/*.spec.ts'],
+        e2e: [e2e + '**/*.ts'],
+        helper: [testHelper + '**/*.ts']
+    };
+    var buildPath = 'public/';
+    var build = {
+        path: buildPath,
+        app: buildPath+'app/',
+        fonts: buildPath+'fonts',
+        assetPath: buildPath+'assets/',
+        assets: {
+            lib: {
+                js: 'lib.js',
+                css: 'lib.css'
+            }
+        }
+    };
+    var report = {
+        path: 'report/'
+    };
+    var liveServer = {
+        dev: {
+            port: 3000,
+            host: "127.0.0.1",
+            open: '/',
+            file: "index.html",
+            wait: 1000,
+            logLevel: 0
+        },
+        prod: {
+            port: 3001,
+            host: "127.0.0.1",
+            root: 'build/',
+            file: "index.html",
+            wait: 1000,
+            logLevel: 0
+        }
+    };
+
+    var e2eConfig = {
+        seleniumTarget: 'http://127.0.0.1:3000'
+    };
+
+    var systemJs = {
+        builder: {
+            normalize: true,
+            minify: true,
+            // TODO: remove this when angular2 bug is solved
+            mangle: false,
+            // TODO
+            globalDefs: { DEBUG: false }
+        }
+    };
+
+    var config = {
+        root: root,
+        app: app,
+        test: test,
+        testHelper: testHelper,
+        e2e: e2e,
+        e2eConfig: e2eConfig,
+        assets: assets,
+        index: index,
+        build: build,
+        report: report,
+        assetsPath: assetsPath,
+        tsFiles: tsFiles,
+        tsTestFiles: tsTestFiles,
+        liveServer: liveServer,
+        systemJs: systemJs
+    };
+
+    return config;
+};
